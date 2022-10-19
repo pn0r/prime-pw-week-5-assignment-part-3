@@ -32,18 +32,42 @@ function findByArtist(artist){
   }return artistList;
 }
 
-function search(artist, year, track){
-  if(!artist && !year){
+// Create a function called `search`. This function should:
+//   - Take an input parameter for a search criteria object. Create your solution based on a search object that has these properties:
+//   ```
+//   { artist: 'Ray Charles', year: 1957 }
+//   ```
+//   - The returned output from `search` should meet these requirements:
+//     - Return a new array of all items in the `collection` matching *all* of the search criteria.
+//     - If no results are found, return an empty array.
+//     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
+
+// - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
+//   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
+//   - Update `search` to allow a `trackName` search criteria.
+//   - Update the `showCollection` function to display the list of tracks for each album with its name and duration.
+
+function search(artist, year, trackName){
+  if(!artist && !year && !trackName){
     return collection;
   }
   let searchList = [];
-  for (let i =0; i<collection.length; i++){
-    if(collection[i].Artist==artist && collection[i].Year==year)
+  for (let i = 0; i<collection.length; i++){
+    if(collection[i].Artist == artist && collection[i].Year == year && trackName == ''){
+        searchList.push(collection[i]);
+    }else if(collection[i].Year == year && artist == '' && trackName == ''){
+        searchList.push(collection[i]);
+    }else if(collection[i].Artist == artist && year == '' && trackName == ''){
     searchList.push(collection[i]);
+}
   for (let j =0; j < collection[i].Tracks.length; j++){
-    if(collection[i].Tracks[j] = track){
-    return (collection[i].Tracks[j]);
-    }
+    if(collection[i].Tracks[j].Name == trackName && collection[i].Artist == artist && collection[i].Year == year){
+    return (collection[i].Tracks[j].Name);
+    }else if(collection[i].Tracks[j].Name == trackName && collection[i].Artist == artist && collection[i].Year == ''){
+      return (collection[i].Tracks[j].Name);
+    }else if(collection[i].Tracks[j].Name == trackName && collection[i].Artist == '' && collection[i].Year == year){
+        return (collection[i].Tracks[j].Name);
+      }
   }
   }
   return searchList;
@@ -255,7 +279,7 @@ addToCollection('So Much for the Afterglow', 'Everclear', '1997',[{
   Name:'Like  California King',
   Duration:'8:08',
   }]);
-  addToCollection('Rumors', 'Fleetwoood Mac', '1977',[{
+  addToCollection('Rumors', 'Fleetwood Mac', '1977',[{
   Name:'Second Hand News',
   Duration:'2:43',
   },
@@ -341,13 +365,16 @@ addToCollection('Dive','Tycho','2011',[{
 }]);
 
 showCollection(collection);
-console.log(findByArtist('Nirvana'));
-console.log(findByArtist('Third Eye Blind'));
-console.log(findByArtist('Smashing Pumpkins'));
-console.log(search('Nirvana','1991'));
-console.log(search());
-console.log(search('Nirvana', '1991','In Bloom'));
-console.log(findByArtist('nirvana'));
-
-
-
+console.log('epxected 2 albums:',findByArtist('Nirvana'));
+console.log('epected 1 album:',findByArtist('Third Eye Blind'));
+console.log('expected empty:',findByArtist('Smashing Pumpkins'));
+console.log('expected 1 album:',search('Nirvana','1991',''));
+console.log('expected entire collection:',search());
+console.log('expected In Bloom:',search('Nirvana', '1991','In Bloom'));
+console.log('expected empty array',search('Nirvana', '1993','In Bloom'));
+console.log('expected 2 albums:',findByArtist('Nirvana'));
+console.log('expected 2 albums',search('','1997',''));
+console.log('expected Gold Dust Woman',search('Fleetwood Mac','1977','Gold Dust Woman'));
+console.log('expected empty array',search('Nirvana','1977','Gold Dust Woman'));
+console.log('expected empty array',search('Nirvana','1991','Gold Dust Woman'));
+console.log('expected empty array',search('Nirvana','','Gold Dust Woman'));
