@@ -24,13 +24,293 @@ function addToCollection(title, artist, yearPublished, tracks){
 //   - Add 6 albums to your collection. Aim to have a mix of both same and different artists and published years. (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
 //   - Console.log each album as added using the returned value.
 //   - After all are added, console.log the `collection` array.
-addToCollection('Nevermind', 'Nirvana', '1991',['Smells Like Teen Spirit 5:01', 'In Bloom 4:15']);
-addToCollection('In Utero', 'Nirvana', '1993');
-addToCollection('Third Eye Blind', 'Third Eye Blind', '1997');
-addToCollection('So Much for the Afterglow', 'Everclear', '1997');
-addToCollection('Rumors', 'Fleetwoood Mac', '1977');
-addToCollection('Dive','Tycho','2011');
-console.log(collection);
+addToCollection('Nevermind', 'Nirvana', '1991',[{
+  Name: 'Smells Like Teen Spirit',
+  Duration: '5:01',
+  }, 
+  {
+  Name:'Come as You Are',
+  Duration:'3:39',
+  },
+  {
+  Name:'In Bloom',
+  Duration:'4:15',
+  },
+  {
+  Name:'Breed',
+  Duration:'3:04',
+  },
+  {
+  Name:'Lithium',
+  Duration:'4:17',
+  },
+  {
+  Name:'Polly',
+  Duration:'2:57',
+  },
+  {
+  Name:'Territorial Pissings',
+  Duration:'2:23',
+  },
+  {
+  Name:'Drain You',
+  Duration:'3:34',
+  },
+  {
+  Name:'Lounge Act',
+  Duration:'2:37',
+  },
+  {
+  Name:'Stay Away',
+  Duration:'3:32',
+  },
+  {
+  Name:'On a Plane',
+  Duration:'3:16',
+  },
+  {
+  Name:'Something in the Way',
+  Duration:'3:52',
+  },
+]);
+
+addToCollection('In Utero', 'Nirvana', '1993',[{
+  Name:'Serve the Servants',
+  Duration:'3:37',
+  },
+  {
+  Name:'Scentless Apprentice',
+  Duration:'3:48',
+  },
+  {
+  Name:'Heart Shaped Box',
+  Duration:'4:41',
+  },
+  {
+  Name:'Rape Me',
+  Duration:'2:50',
+  },
+  {
+  Name:'Frances Farmer Will Have Her Revenge On Seattle',
+  Duration:'4:10',
+  },
+  {
+  Name:'Dumb',
+  Duration:'2:32',
+  },
+  {
+  Name:'Very Ape',
+  Duration:'1:56',
+  },
+  {
+  Name:'Milk It',
+  Duration:'3:54',
+  },
+  {Name:'PennyRoyal Tea',
+  Duration:'3:37',
+  },
+  {Name:'Radio Friendly Unit Shifter',
+  Duration:'4:51',
+  },
+  {Name:"Tourette's",
+  Duration:'1:35',
+  },
+  {Name:'All Alpologies',
+  Duration:'3:51',
+  },
+  ]);
+
+addToCollection('Third Eye Blind', 'Third Eye Blind', '1997', [{
+  Name:'Losing a Whole Year',
+  Duration:'3:21',
+  },
+  {
+  Name:'Narcolepsy',
+  Duration:'3:49',
+  },
+  {
+  Name:'Semi-Charmed Life',
+  Duration:'4:29',
+  },
+  {
+  Name:'Jumper',
+  Duration:'4:32',
+  },
+  {
+  Name:'Gratitude',
+  Duration:'3:10',
+  },
+  {
+  Name:"How's It Going to Be",
+  Duration:'4:13',
+  },
+  {
+  Name:'Thanks a Lot',
+  Duration:'4:58',
+  },
+  {
+  Name:'Bruning Man',
+  Duration:'3:00',
+  },
+  {
+  Name:'Good for You',
+  Duration:'3:52',
+  },
+  {
+  Name:'London',
+  Duration:'3:07',
+  },
+  {
+  Name:'I Want You',
+  Duration:'4:29',
+  },
+  {
+  Name:'The Background',
+  Duration:'4:57',
+  },
+  {  
+  Name:'Motorcycle Drive By',
+  Duration:'4:23',
+  },
+  {
+  Name:'God of Wine',
+  Duration:'5:18',
+  },
+]);
+
+addToCollection('So Much for the Afterglow', 'Everclear', '1997',[{
+  Name:'So Much for the Afterglow',
+  Duration:'3:55',
+  },
+  {
+  Name:'Everything to Everyone',
+  Duration:'3:20',
+  },
+  {
+  Name:'Ataraxia',
+  Duration:'0:35',
+  },
+  {
+  Name:'Normal Like You',
+  Duration:'3:13',
+  },
+  {
+  Name:'I Will Buy You a New Life',
+  Duration:'3:54',
+  },
+  {
+  Name:'Father of Mine',
+  Duration:'3:52',
+  },
+  {
+  Name:'One Hit Wonder',
+  Duration:'3:28',
+  },
+  {
+  Name:'El Distorto De Melodica',
+  Duration:'3:07',
+  },
+  {
+  Name:'Amphetamine',
+  Duration:'3:55',
+  },
+  {
+  Name:'White Men in Black Suits',
+  Duration:'3:31',
+  },
+  {
+  Name:'Sunflowers',
+  Duration:'3:48',
+  },
+  {
+  Name:"Why I Don't Believe in God",
+  Duration:'4:17',
+  },
+  {
+  Name:'Like  California King',
+  Duration:'8:08',
+  }]);
+  addToCollection('Rumors', 'Fleetwoood Mac', '1977',[{
+  Name:'Second Hand News',
+  Duration:'2:43',
+  },
+  {
+  Name:'Dreams',
+  Duration:'4:14',
+  },
+  {
+  Name:'Never Going Back Again',
+  Duration:'2:02',
+  },
+  {
+  Name:"Don't Stop",
+  Duration:'3:11',
+  },
+  {
+  Name:'Go Your Own Way',
+  Duration:'3:38',
+  },
+  {
+  Name:'Songbird',
+  Duration:'3:20',
+  },
+  {
+  Name:'The Chain',
+  Duration:'4:28',
+  },
+  {
+  Name:'You Make Loving Fun',
+  Duration:'3:31',
+  },
+  {
+  Name:"I Don't Wan't to Know",
+  Duration:'3:11',
+  },
+  {
+  Name:'Oh Daddy',
+  Duration:'3:54',
+}]);
+addToCollection('Dive','Tycho','2011',[{
+  Name:'A Walk',
+  Duration:'5:17',
+  },
+  {
+  Name:'Hours',
+  Duration:'5:44',
+  },
+  {
+  Name:'Daydream',
+  Duration:'5:34',
+  },
+  {
+  Name:'Dive',
+  Duration:'8:20',
+  },
+  {
+  Name:'Coastal Brake',
+  Duration:'5:34',
+  },
+  {
+  Name:'Ascension',
+  Duration:'4:24',
+  },
+  {
+  Name:'Melanine',
+  Duration:'2:53',
+  },
+  {
+  Name:'Adrift',
+  Duration:'6:00',
+  },
+  {
+  Name:'Epigram',
+  Duration:'2:29',
+  },
+  {
+  Name:'Elegy',
+  Duration:'4:24',
+}]);
+// console.log(collection);
 // - Add a function named `showCollection`. This function should:
 //   - Take in an array parameter. (This allows it to be reused to show any collection, like the results from the find or search.)
 //   - Console.log the number of items in the array.
@@ -38,8 +318,11 @@ console.log(collection);
 function showCollection(array){
   console.log(array.length);
   for (let album of array){
-    console.log(album.Title, 'by', album.Artist, 'published in', album.Year);
+    console.log(album.Title, 'by', album.Artist, 'published in', album.Year+':');
+    for (let track of album.Tracks){
+      console.log(album.Tracks.indexOf(track)+1,track.Name,track.Duration);
     }
+  }
 }
 // - Test the `showCollection` function.
 showCollection(collection);
@@ -77,23 +360,29 @@ console.log(findByArtist('Smashing Pumpkins'));
 //     - Return a new array of all items in the `collection` matching *all* of the search criteria.
 //     - If no results are found, return an empty array.
 //     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
+console.log('search function');
 
-
-function search(artist, year){
+function search(artist, year, track){
   if(!artist && !year){
     return collection;
   }
   let searchList = [];
-  for (let i =0; i<collection.length; i++)
-    if(collection[i].Artist==artist && collection[i].Year==year){
+  for (let i =0; i<collection.length; i++){
+    if(collection[i].Artist==artist && collection[i].Year==year)
     searchList.push(collection[i]);
+  for (let j =0; j < collection[i].Tracks.length; j++){
+    if(collection[i].Tracks[j] = track){
+    return (collection[i].Tracks[j]);
+    }
+  }
   }
   return searchList;
 }
 
 console.log(search('Nirvana','1991'));
 console.log(search());
-console.log(search(1991));
+console.log(search('Nirvana', '1991','In Bloom'));
+
 
 // - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
