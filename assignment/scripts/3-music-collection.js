@@ -10,11 +10,12 @@ let collection = [];
 //   - Create a new object having the above properties
 //   - Add the new object to the end of the `collection` array
 //   - Return the newly created object
-function addToCollection(title, artist, yearPublished){
+function addToCollection(title, artist, yearPublished, tracks){
   let album = {
     Title: title,
     Artist: artist,
     Year: yearPublished,
+    Tracks: tracks,
   }
   collection.push(album);
   return album;
@@ -23,7 +24,7 @@ function addToCollection(title, artist, yearPublished){
 //   - Add 6 albums to your collection. Aim to have a mix of both same and different artists and published years. (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
 //   - Console.log each album as added using the returned value.
 //   - After all are added, console.log the `collection` array.
-addToCollection("Nevermind", "Nirvana", "1991");
+addToCollection('Nevermind', 'Nirvana', '1991',['Smells Like Teen Spirit 5:01', 'In Bloom 4:15']);
 addToCollection('In Utero', 'Nirvana', '1993');
 addToCollection('Third Eye Blind', 'Third Eye Blind', '1997');
 addToCollection('So Much for the Afterglow', 'Everclear', '1997');
@@ -37,7 +38,7 @@ console.log(collection);
 function showCollection(array){
   console.log(array.length);
   for (let album of array){
-    console.log(album.Title, 'by', album.Artist, 'published in', album.Year)
+    console.log(album.Title, 'by', album.Artist, 'published in', album.Year);
     }
 }
 // - Test the `showCollection` function.
@@ -47,7 +48,19 @@ showCollection(collection);
 //   - Create an array to hold any results, empty to start
 //   - Loop through the `collection` and add any objects with a matching artist to the array.
 //   - Return the array with the matching results. If no results are found, return an empty array.
+function findByArtist(artist){
+  let artistList =[];
+  for (let album of collection){
+    if(album.Artist===artist){
+      artistList.push(album)
+    }
+  }return artistList;
+  
+}
 
+console.log(findByArtist('Nirvana'));
+console.log(findByArtist('Third Eye Blind'));
+console.log(findByArtist('Smashing Pumpkins'));
 // - Test the `findByArtist` function. Make sure to test with an artist you know is in the collection, as well as an artist you know is not in your collection. Check that for artists with multiple matches, all are found.
 
 // > When testing your functions, write all tests in the JavaScript file!
@@ -64,6 +77,23 @@ showCollection(collection);
 //     - Return a new array of all items in the `collection` matching *all* of the search criteria.
 //     - If no results are found, return an empty array.
 //     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
+
+
+function search(artist, year){
+  if(!artist && !year){
+    return collection;
+  }
+  let searchList = [];
+  for (let i =0; i<collection.length; i++)
+    if(collection[i].Artist==artist && collection[i].Year==year){
+    searchList.push(collection[i]);
+  }
+  return searchList;
+}
+
+console.log(search('Nirvana','1991'));
+console.log(search());
+console.log(search(1991));
 
 // - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
 //   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
