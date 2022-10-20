@@ -18,7 +18,7 @@ function showCollection(array){
   for (let album of array){
     console.log(album.Title, 'by', album.Artist, 'published in', album.Year+':');
     for (let track of album.Tracks){
-      console.log(album.Tracks.indexOf(track)+1,track.Name,track.Duration);
+      console.log(album.Tracks.indexOf(track) + 1,track.Name,track.Duration);
     }
   }
 }
@@ -32,21 +32,6 @@ function findByArtist(artist){
   }return artistList;
 }
 
-// Create a function called `search`. This function should:
-//   - Take an input parameter for a search criteria object. Create your solution based on a search object that has these properties:
-//   ```
-//   { artist: 'Ray Charles', year: 1957 }
-//   ```
-//   - The returned output from `search` should meet these requirements:
-//     - Return a new array of all items in the `collection` matching *all* of the search criteria.
-//     - If no results are found, return an empty array.
-//     - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
-
-// - Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
-//   - Update the `addToCollection` function to also take an input parameter for the array of tracks.
-//   - Update `search` to allow a `trackName` search criteria.
-//   - Update the `showCollection` function to display the list of tracks for each album with its name and duration.
-
 function search(artist, year, trackName){
   if(!artist && !year && !trackName){
     return collection;
@@ -54,19 +39,21 @@ function search(artist, year, trackName){
   let searchList = [];
   for (let i = 0; i<collection.length; i++){
     if(collection[i].Artist == artist && collection[i].Year == year && trackName == ''){
-        searchList.push(collection[i]);
+      searchList.push(collection[i]);
     }else if(collection[i].Year == year && artist == '' && trackName == ''){
-        searchList.push(collection[i]);
+      searchList.push(collection[i]);
     }else if(collection[i].Artist == artist && year == '' && trackName == ''){
-    searchList.push(collection[i]);
+      searchList.push(collection[i]);
 }
   for (let j =0; j < collection[i].Tracks.length; j++){
     if(collection[i].Tracks[j].Name == trackName && collection[i].Artist == artist && collection[i].Year == year){
-    return (collection[i].Tracks[j].Name);
-    }else if(collection[i].Tracks[j].Name == trackName && collection[i].Artist == artist && collection[i].Year == ''){
-      return (collection[i].Tracks[j].Name);
-    }else if(collection[i].Tracks[j].Name == trackName && collection[i].Artist == '' && collection[i].Year == year){
-        return (collection[i].Tracks[j].Name);
+      searchList.push(collection[i].Tracks[j].Name + ' by: ' + collection[i].Artist);
+    }else if(collection[i].Tracks[j].Name == trackName && collection[i].Artist == artist && year == ''){
+      searchList.push(collection[i].Tracks[j].Name + ' by: ' + collection[i].Artist);
+    }else if(collection[i].Tracks[j].Name == trackName && artist == '' && collection[i].Year == year){
+      searchList.push(collection[i].Tracks[j].Name + ' by: ' + collection[i].Artist);
+    }else if(collection[i].Tracks[j].Name == trackName && artist == '' && year == ''){
+        searchList.push(collection[i].Tracks[j].Name + ' by: ' + collection[i].Artist);
       }
   }
   }
@@ -164,7 +151,7 @@ addToCollection('In Utero', 'Nirvana', '1993',[{
   {Name:"Tourette's",
   Duration:'1:35',
   },
-  {Name:'All Alpologies',
+  {Name:'All Apologies',
   Duration:'3:51',
   },
   ]);
@@ -371,10 +358,14 @@ console.log('expected empty:',findByArtist('Smashing Pumpkins'));
 console.log('expected 1 album:',search('Nirvana','1991',''));
 console.log('expected entire collection:',search());
 console.log('expected In Bloom:',search('Nirvana', '1991','In Bloom'));
-console.log('expected empty array',search('Nirvana', '1993','In Bloom'));
+console.log('expected empty array:',search('Nirvana', '1993','In Bloom'));
 console.log('expected 2 albums:',findByArtist('Nirvana'));
-console.log('expected 2 albums',search('','1997',''));
-console.log('expected Gold Dust Woman',search('Fleetwood Mac','1977','Gold Dust Woman'));
+console.log('expected 2 albums:',search('','1997',''));
+console.log('expected Gold Dust Woman:',search('Fleetwood Mac','1977','Gold Dust Woman'));
 console.log('expected empty array',search('Nirvana','1977','Gold Dust Woman'));
 console.log('expected empty array',search('Nirvana','1991','Gold Dust Woman'));
 console.log('expected empty array',search('Nirvana','','Gold Dust Woman'));
+console.log('expected All Apologies by Nirava:',search('','','All Apologies'))
+console.log('expected All Apologies by Nirava:',search('','1993','All Apologies'))
+console.log('expected All Apologies by Nirava:',search('Nirvana','','All Apologies'))
+console.log('expected empty array',search('Nirvana','1991','Gold Dust Woman'));
